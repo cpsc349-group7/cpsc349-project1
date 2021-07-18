@@ -16,7 +16,7 @@ pagination:
 <ul>
     {% for photo in pics %}
         <li>
-            <a href="/cpsc349-project1/{{ photo.url }}">
+            <a href="/cpsc349-project1{{ photo.url }}">
                 A {{ photo.data.photo_keyword }} photo
                 by {{ photo.data.photographer_first_name}} {{ photo.data.photographer_last_name }}
             </a>
