@@ -56,5 +56,4 @@ jobs:
           uses: peaceiris/actions-gh-pages@v3
           with:
             deploy_key: ${{ secrets.ACTION_DEPLOY_KEY }}
-      main
             publish_dir: ./dist
