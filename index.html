@@ -16,7 +16,7 @@ pagination:
 <ul>
     {% for photo in pics %}
         <li>
-            <a href="/cpsc349-project1{{ photo.url }}">
+            <a href="{{ photo.url }}">
                 A {{ photo.data.photo_keyword }} photo
                 by {{ photo.data.photographer_first_name}} {{ photo.data.photographer_last_name }}
             </a>
@@ -26,8 +26,8 @@ pagination:
 </ul>
 
 {% if pagination.previous %}
-    <a href="/cpsc349-project1{{ pagination.previous }}">Previous</a>
+    <a href="{{ pagination.previous }}">Previous</a>
 {% endif %}
 {% if pagination.next %}
-    <a href="/cpsc349-project1{{ pagination.next }}">Next</a>
+    <a href="{{ pagination.next }}">Next</a>
 {% endif %}
