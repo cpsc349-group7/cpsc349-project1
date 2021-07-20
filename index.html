@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <title>A document with pet photos</title>
-        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-    </head>
-    <body style="background-color: ;">
-    <nav>
-        <a href="https://cpsc349-group7.github.io/cpsc349-project1/about/">About</a>
-    </nav>
-    <header>
-        <h1>Pet Photos from Unsplash</h1>
-    </header>
-        <h1></h1>
-    
-        
-    
-        <p>
+---
+title: Welcome
+layout: base
+pagination: 
+    data: collections.photos
+    size: 10
+    alias: pics
+---
+<p>
     Pet photos from
     <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
         Unsplash
@@ -24,96 +14,20 @@
 </p>
 
 <ul>
-    
+    {% for photo in pics %}
         <li>
-            <a href="/photos/000/">
-                A dog photo
-                by Jared Murray
+            <a href="{{ photo.url }}">
+                A {{ photo.data.photo_keyword }} photo
+                by {{ photo.data.photographer_first_name}} {{ photo.data.photographer_last_name }}
             </a>
-            <br>two brown short-coated dogs laying on bed 
+            <br>{{ photo.data.ai_description }} 
         </li>
-    
-        <li>
-            <a href="/photos/001/">
-                A dog photo
-                by FLOUFFY 
-            </a>
-            <br>white and brown long coated small dog in pink hoodie 
-        </li>
-    
-        <li>
-            <a href="/photos/002/">
-                A dog photo
-                by Alan Quirvan
-            </a>
-            <br>black and white border collie 
-        </li>
-    
-        <li>
-            <a href="/photos/003/">
-                A dog photo
-                by April Walker
-            </a>
-            <br>woman carrying tan poodle puppy 
-        </li>
-    
-        <li>
-            <a href="/photos/004/">
-                A dog photo
-                by LongX Music
-            </a>
-            <br>short-coated white dog 
-        </li>
-    
-        <li>
-            <a href="/photos/005/">
-                A dog photo
-                by FLOUFFY 
-            </a>
-            <br>short-coated black dog lying on ground 
-        </li>
-    
-        <li>
-            <a href="/photos/006/">
-                A dog photo
-                by Carissa Weiser
-            </a>
-            <br>black puppy on blue padded couch 
-        </li>
-    
-        <li>
-            <a href="/photos/007/">
-                A cat photo
-                by Paolo Nicolello
-            </a>
-            <br>black cat on black textile 
-        </li>
-    
-        <li>
-            <a href="/photos/008/">
-                A dog photo
-                by FLOUFFY 
-            </a>
-            <br>fawn pug wearing red and white striped shirt 
-        </li>
-    
-        <li>
-            <a href="/photos/009/">
-                A cat photo
-                by Andreea Popa
-            </a>
-            <br>close-up photography of bombay cat 
-        </li>
-    
+    {% endfor %}
 </ul>
 
-
-
-    <a href="/1/index.html">Next</a>
-
-        <footer>
-            <h1>Pet Photos from Unsplash</h1>
-        </footer>
-    </body>
-    
-</html>
+{% if pagination.previous %}
+    <a href="{{ pagination.previous }}">Previous</a>
+{% endif %}
+{% if pagination.next %}
+    <a href="{{ pagination.next }}">Next</a>
+{% endif %}
